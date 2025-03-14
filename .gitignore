@@ -1,0 +1,34 @@
+# Ignore virtual environments
+myenv/
+venv/
+.env/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore IDE/editor config files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore Node.js dependencies (if chat-app is a React project)
+chat-app/node_modules/
+chat-app/.next/
+chat-app/build/
+chat-app/dist/
+
+# Ignore environment variables & secrets
+.env
+*.env
+
+# Ignore logs & OS-generated files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
