@@ -114,6 +114,12 @@ h1 {
   font-size: 16px;
   outline: none;
   transition: 0.3s;
+  resize: none; /* Prevent manual resizing */
+  height: auto; /* Allow it to expand */
+  min-height: 40px; /* Default height */
+  max-height: 150px; /* Limit the height to prevent excessive growth */
+  overflow-y: auto; /* Show scrollbar when needed */
+  white-space: pre-wrap; /* Ensure text wraps properly */
 }
 
 .chat-input:focus {
@@ -135,4 +141,22 @@ h1 {
 
 .send-button:hover {
   background-color: #0056b3;
+}
+
+.back-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+  align-self: flex-start;
+}
+
+.back-button:hover {
+  background-color: #c82333;
 }

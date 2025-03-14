@@ -24,7 +24,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://127.0.0.1:5000/chat", {
+      const response = await axios.post("https://health-chatbot-mzn0.onrender.com/chat", {
         session_type: sessionType,
         message: userMessage.content,
       });
@@ -52,6 +52,9 @@ export default function App() {
         </div>
       ) : (
         <div className="chat-box">
+          <button className="back-button" onClick={() => setChatActive(false)}>
+            ← Back
+          </button>
           <div className="messages-container">
             {messages.map((msg, index) => (
               <div key={index} className={`message ${msg.role}`}>
@@ -62,13 +65,17 @@ export default function App() {
           </div>
 
           <div className="input-container">
-            <input
-              type="text"
+            <textarea
               className="chat-input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type a message..."
-            />
+              rows="1"
+              onInput={(e) => {
+                e.target.style.height = "auto";
+                e.target.style.height = `${e.target.scrollHeight}px`;
+              }}
+            ></textarea>
             <button className="send-button" onClick={sendMessage}>
               Send
             </button>
