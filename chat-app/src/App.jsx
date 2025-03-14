@@ -8,6 +8,7 @@ export default function App() {
   const [input, setInput] = useState("");
   const [chatActive, setChatActive] = useState(false);
   const [loading, setLoading] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const startChat = (type) => {
     setSessionType(type);
@@ -24,7 +25,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const response = await axios.post("https://health-chatbot-mzn0.onrender.com/chat", {
+      const response = await axios.post(`${API_URL}/chat`, {
         session_type: sessionType,
         message: userMessage.content,
       });
