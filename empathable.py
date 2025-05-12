@@ -1,20 +1,28 @@
 from dotenv import load_dotenv
 import os
-from openai import OpenAI
+import google.generativeai as genai
 import random
-
 
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-def get_response(messages, temperature = 0.5, model = "gpt-4o-mini"):
-  response = client.chat.completions.create(
-      model=model,
-      messages=messages,
-      temperature=temperature
-  )
-  return response.choices[0].message.content
+# Configure Gemini AI
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+model = genai.GenerativeModel('gemini-1.5-flash')
+def get_response(messages, temperature=0.5):
+    chat = model.start_chat(history=[])
+    
+    # Add system message as context
+    system_message = next((m for m in messages if m["role"] == "system"), None)
+    if system_message:
+        chat.send_message(system_message["content"])
+    
+    # Add user message and get response
+    user_message = next((m for m in messages if m["role"] == "user"), None)
+    if user_message:
+        response = chat.send_message(user_message["content"])
+        return response.text
+    
+    return "I don't understand the message"
 
 personality_profiles = {
     # Emotional-Based
@@ -162,8 +170,8 @@ Print the personality traits once before responding back to the user.
 """
 
 messages = [
-  {"role": "system", "content": prompt2},
-  ]
+    {"role": "system", "content": prompt2},
+]
 
 for turn in range(10): 
     user_input = input(f"{user}: ")

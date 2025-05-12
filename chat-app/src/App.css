@@ -226,3 +226,125 @@ h1 {
 .back-button:hover {
   background-color: #c82333;
 }
+
+/* Patient Form Styles */
+.patient-form {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.form-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.conditions-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.condition-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.condition-checkbox input[type="checkbox"] {
+  margin: 0;
+}
+
+/* Layout adjustments for chat with sidebar */
+.main-content {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+.patient-form-sidebar {
+  width: 300px;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  padding: 15px;
+  background: white;
+}
+
+.chat-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-content.with-sidebar {
+  margin-left: 15px;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.toggle-form-button {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle-form-button:hover {
+  background: #5a6268;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Disabled button styles */
+.start-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.start-button:disabled:hover {
+  background-color: #ccc;
+}
